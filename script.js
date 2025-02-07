@@ -40,10 +40,6 @@ function handleColorGuess(color) {
 }
 
 function startNewGame() {
-  // Reset score to 0 when a new game starts
-  score = 0;
-  scoreElement.textContent = `Score: ${score}`;
-  
   targetColor = generateRandomColor();
   colorBox.style.backgroundColor = targetColor;
 
@@ -61,7 +57,11 @@ function startNewGame() {
   gameStatus.textContent = "";
 }
 
-newGameButton.addEventListener("click", startNewGame);
+newGameButton.addEventListener("click", () => {
+  score = 0;
+  scoreElement.textContent = `Score: ${score}`;
+  startNewGame();
+});
 
 // Start the game
 startNewGame();
